@@ -1,9 +1,10 @@
 import java.util.Date;
 
 class Empleado {
-    String nombre;
+    final String nombre;
+    int edad;
     private int edad;
-    Date fechaContratacion;
+    final Date fechaContratacion;
 
     public Empleado(String nombre, int edad, Date fechaContratacion) {
     private Empleado(String nombre, int edad, Date fechaContratacion) {
@@ -13,12 +14,12 @@ class Empleado {
         }
 
         public void setEdad(int edad) {
-            if (edad<0) throw new RuntimeException("Un empleado no puede tener edad negativa");
             if (edad < 0) throw new RuntimeException("Un empleado no puede tener edad negativa");
             else this.edad = edad;
         }
 
-
+        @Override
+        public String toString() {
             return "Se ha registrado a " + nombre + " (" + edad + " años; contratado en 19" + fechaContratacion.getYear() + ")";
         }
 
@@ -31,4 +32,4 @@ class Empleado {
             else return new Empleado(nombre, edad, fechaContratacion);
         }
 
-}
+    }
