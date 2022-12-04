@@ -1,33 +1,32 @@
+import java.time.LocalDate;
 import java.util.Date;
 
 class Empleado {
-    final String nombre;
     private final String nombre;
     private int edad;
-    final Date fechaContratacion;
     private final Date fechaContratacion;
+    private final LocalDate fechaContratacion;
 
     private Empleado(String nombre, int edad, Date fechaContratacion) {
-        this.nombre = nombre;
-        @@ -16,6 +16,18 @@ public void setEdad(int edad) {
-        else this.edad = edad;
-        }
+    private Empleado(String nombre, int edad, LocalDate fechaContratacion) {
+            this.nombre = nombre;
+            this.edad = edad;
+            this.fechaContratacion = fechaContratacion;
 
-        public String getNombre() {
-            return nombre;
-        }
+                return edad;
+            }
 
-        public int getEdad() {
-            return edad;
-        }
-
-        public Date getFechaContratacion() {
-            return fechaContratacion;
-        }
-
-        @Override
-        public String toString() {
-            return "Se ha registrado a " + nombre + " (" + edad + " años; contratado en 19" + fechaContratacion.getYear() + ")";
+            public Date getFechaContratacion() {
+                public LocalDate getFechaContratacion() {
+                    return fechaContratacion;
+                }
 
 
-    }
+     * Método factoría que permite comprobar si la edad es válida antes de llamar al constructor.
+                            * El constructor es ahora privado, impidiendo llamarlo directamente desde otra clase.
+                            */
+                    public static Empleado crearEmpleado(String nombre, int edad, Date fechaContratacion) {
+                        public static Empleado crearEmpleado(String nombre, int edad, LocalDate fechaContratacion) {
+                            if (edad < 0) throw new RuntimeException("Un empleado no puede tener edad negativa");
+                            else return new Empleado(nombre, edad, fechaContratacion);
+                        }
