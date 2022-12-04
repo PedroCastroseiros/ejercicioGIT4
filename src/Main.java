@@ -14,7 +14,7 @@ public class Main {
         System.out.println(p);
 
         //p.nombre = "Manolo";
-        
+
             System.out.println("Si quiero mostrar solo el nombre: " + p.getNombre());
             System.out.println("Si quiero mostrar solo la edad: " + p.getEdad());
 
